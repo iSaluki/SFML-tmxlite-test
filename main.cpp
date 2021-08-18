@@ -33,6 +33,13 @@ int main()
      //Set the sprite texture (default)
     sf::Sprite sprite(leftTexture);
 
+    //Load background image
+    sf::Texture bgImg;
+    if(!bgImg.loadFromFile("img/bg.png")){
+        return EXIT_FAILURE;
+    }
+    //Create background sprite
+    sf::Sprite bgSprite(bgImg);
     //Set default sprite position
     sf::FloatRect spriteSize = sprite.getGlobalBounds(); //Rectangle around the sprite
     sprite.setOrigin(spriteSize.width/2, spriteSize.height/2);
@@ -151,10 +158,12 @@ int main()
         //Clear previous frame, set background colour to Azure
         window.clear(sf::Color(0,128,255));
 
-        //Draw sprite
-        //sf::Vector2f spritePos = sprite.getPosition();
-        //window.draw(sprite);
+        // Draw background image. DO NOT DRAW ANYTHING BEFORE THIS!
+        window.draw(bgSprite);
+
+        //Update character sprite location
         sprite.setPosition(x,y);
+        //Draw character sprite
         window.draw(sprite);
         //Update frame
         window.display();

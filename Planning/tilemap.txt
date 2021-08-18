@@ -1,0 +1,7 @@
+####
+Tilemap System - C/C++ Implementation
+####
+
+Prereq: Learn how to make C++ modules and create one for the tilemap system. Lower congestion in main.cpp [Postponed]
+
+SETUP TMXLITE

@@ -1,9 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
+//Include tmxlite
 
 //Set constant for sprite speed
 #define SPEED 5;
+
+
 
 int main()
 {
@@ -20,13 +23,13 @@ int main()
 
     //Load the texture for the left sprite.
     sf::Texture leftTexture;
-    if(!leftTexture.loadFromFile("img/sprite_left.png"))
+    if(!leftTexture.loadFromFile("sprite_left.png"))
     {
         return EXIT_FAILURE;
     }
 // Load the right texture for the sprite
     sf::Texture rightTexture;
-    if(!rightTexture.loadFromFile("img/sprite_right.png"))
+    if(!rightTexture.loadFromFile("sprite_right.png"))
     {
         return EXIT_FAILURE;
     }
@@ -35,7 +38,7 @@ int main()
 
     //Load background image
     sf::Texture bgImg;
-    if(!bgImg.loadFromFile("img/bg.png")){
+    if(!bgImg.loadFromFile("bg.png")){
         return EXIT_FAILURE;
     }
     //Create background sprite

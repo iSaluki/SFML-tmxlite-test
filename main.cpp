@@ -33,8 +33,7 @@ int main()
      //Set the sprite texture (default)
     sf::Sprite sprite(leftTexture);
 
-    //Set default sprite po
-//Sesition
+    //Set default sprite position
     sf::FloatRect spriteSize = sprite.getGlobalBounds(); //Rectangle around the sprite
     sprite.setOrigin(spriteSize.width/2, spriteSize.height/2);
 
@@ -123,17 +122,16 @@ int main()
             y+=SPEED;
         }
 
+    //Update sprite texture to face moving direction
         if(facingRight){
-    //Set the sprite texture
     sprite.setTexture(rightTexture);
         }
         else if(!facingRight)
         {
-    //Set the sprite texture
     sprite.setTexture(leftTexture);
         }
 
-        //Prevent sprite from escaping screen bounds
+        //Prevent sprite from leaving screen bounds
         if(x<0)
         {
             x=0;

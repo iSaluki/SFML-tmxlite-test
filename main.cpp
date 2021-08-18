@@ -18,14 +18,20 @@ int main()
     //Enable VSync
     window.setVerticalSyncEnabled(true);
 
-    //Load the texture for the sprite.
-    sf::Texture texture;
-    if(!texture.loadFromFile("sprite.png"))
+    //Load the texture for the left sprite.
+    sf::Texture leftTexture;
+    if(!leftTexture.loadFromFile("img/sprite_left.png"))
     {
         return EXIT_FAILURE;
     }
-    //Set the sprite texture
-    sf::Sprite sprite(texture);
+// Load the right texture for the sprite
+    sf::Texture rightTexture;
+    if(!rightTexture.loadFromFile("img/sprite_right.png"))
+    {
+        return EXIT_FAILURE;
+    }
+     //Set the sprite texture (default)
+    sf::Sprite sprite(leftTexture);
 
     //Set default sprite po
 //Sesition
@@ -41,6 +47,9 @@ int main()
     bool movingDown = false;
     bool movingLeft = false;
     bool movingRight = false;
+
+    //Orientation data
+    bool facingRight = false;
 
     //Start game loop
     while (window.isOpen())
@@ -68,9 +77,11 @@ int main()
                                 break;
                         case::sf::Keyboard::A:
                             movingLeft = true;
+                            facingRight = false;
                             break;
                         case::sf::Keyboard::D:
                             movingRight = true;
+                            facingRight = true;
                             break;
                         default:
                             break;
@@ -112,6 +123,16 @@ int main()
             y+=SPEED;
         }
 
+        if(facingRight){
+    //Set the sprite texture
+    sprite.setTexture(rightTexture);
+        }
+        else if(!facingRight)
+        {
+    //Set the sprite texture
+    sprite.setTexture(leftTexture);
+        }
+
         //Prevent sprite from escaping screen bounds
         if(x<0)
         {
@@ -129,8 +150,8 @@ int main()
         {
             y=window.getSize().y;
         }
-        //Clear previous frame
-        window.clear();
+        //Clear previous frame, set background colour to Azure
+        window.clear(sf::Color(0,128,255));
 
         //Draw sprite
         //sf::Vector2f spritePos = sprite.getPosition();

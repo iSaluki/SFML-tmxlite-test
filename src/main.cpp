@@ -12,6 +12,7 @@
 int main()
 {
 
+
     // Create window that fits the user's screen size, then make it fullscreen.
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
     sf::RenderWindow window (sf::VideoMode(desktopMode.width, desktopMode.height, desktopMode.bitsPerPixel), "Sprite movement prototype", sf::Style::Fullscreen);
@@ -21,6 +22,12 @@ int main()
       map.load("devmap.tmx");
 
       MapLayer layerZero(map, 0);
+
+
+    //Create a camera controller
+    sf::View view;
+    //Set view to user's screen size
+    view.setSize(desktopMode.width, desktopMode.height);
 
     //Only handle key presses once per loop
     window.setKeyRepeatEnabled(false);
@@ -144,6 +151,10 @@ int main()
             y+=SPEED;
         }
 
+        //Focus camera on sprite
+        sf::Vector2f spritePos = sprite.getPosition();
+        view.setCenter(spritePos);
+
     //Update sprite texture to face moving direction
         if(facingRight){
     sprite.setTexture(rightTexture);
@@ -175,6 +186,9 @@ int main()
 
         // Draw background image. DO NOT DRAW ANYTHING BEFORE THIS!
         //window.draw(bgSprite);
+
+        //Update camera position
+        window.setView(view);
 
         //Draw tilemap
         window.draw(layerZero);

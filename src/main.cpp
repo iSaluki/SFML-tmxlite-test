@@ -1,15 +1,21 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
-//Include tmxlite
+//For tile loading
+#include "tmxlite/Map.hpp"
+#include "tmxlite/SFMLOrthogonalLayer.hpp"
 
 //Set constant for sprite speed
 #define SPEED 5;
 
 
-
 int main()
 {
+    //Load the map in
+      tmx::Map map;
+      map.load("testmap.tmx");
+
+      MapLayer layerZero(map, 0);
 
     // Create window that fits the user's screen size, then make it fullscreen.
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
@@ -61,6 +67,7 @@ int main()
     bool facingRight = false;
 
     //Start game loop
+    sf::Clock globalClock;
     while (window.isOpen())
     {
 
@@ -118,6 +125,10 @@ int main()
                     }
                 }
             }
+
+            sf::Time duration = globalClock.restart();
+            layerZero.update(duration);
+
         //Apply movement
         if(movingLeft){
             x-=SPEED;
@@ -162,7 +173,10 @@ int main()
         window.clear(sf::Color(0,128,255));
 
         // Draw background image. DO NOT DRAW ANYTHING BEFORE THIS!
-        window.draw(bgSprite);
+        //window.draw(bgSprite);
+
+        //Draw tilemap
+        window.draw(layerZero);
 
         //Update character sprite location
         sprite.setPosition(x,y);

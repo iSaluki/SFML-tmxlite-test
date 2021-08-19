@@ -2,8 +2,8 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 //For tile loading
-#include "tmxlite/Map.hpp"
-#include "tmxlite/SFMLOrthogonalLayer.hpp"
+#include <tmxlite/Map.hpp>
+#include "SFMLOrthogonalLayer.hpp"
 
 //Set constant for sprite speed
 #define SPEED 5;

@@ -1,7 +1,0 @@
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/install/strip.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/install/local.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/install.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/list_install_components.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/rebuild_cache.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/edit_cache.dir
-/home/seth/Documents/cppLib/tmxlite-1.3.0/tmxlite/CMakeFiles/tmxlite.dir

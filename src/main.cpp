@@ -5,6 +5,7 @@
 #include <tmxlite/Map.hpp>
 #include "SFMLOrthogonalLayer.hpp"
 
+
 //Set constant for sprite speed
 #define SPEED 5;
 
@@ -181,6 +182,18 @@ int main()
         {
             y=window.getSize().y;
         }
+        //Prevent camera from leaving tilemap
+      sf::FloatRect mapSize = layerZero.getGlobalBounds();
+      float mapHeight = mapSize.height;
+      float mapWidth = mapSize.width;
+
+
+    //Incomplete logic to stop the camera leaving tilemap bounds
+      if(mapHeight < view.getSize().y)
+      {
+          view.setSize(view.getSize().x, mapHeight);
+      }
+
         //Clear previous frame, set background colour to Azure
         window.clear(sf::Color(0,128,255));
 

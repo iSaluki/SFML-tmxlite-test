@@ -34,9 +34,9 @@ are implemented.
 #ifndef SFML_ORTHO_HPP_
 #define SFML_ORTHO_HPP_
 
-#include <tmxlite/Map.hpp>
-#include <tmxlite/TileLayer.hpp>
-#include <tmxlite/detail/Log.hpp>
+#include "Map.hpp"
+#include "TileLayer.hpp"
+#include "detail/Log.hpp"
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/RenderStates.hpp>

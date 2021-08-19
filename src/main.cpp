@@ -18,7 +18,7 @@ int main()
 
     //Load the map in
       tmx::Map map;
-      map.load("testmap.tmx");
+      map.load("devmap.tmx");
 
       MapLayer layerZero(map, 0);
 

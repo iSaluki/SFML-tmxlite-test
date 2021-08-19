@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/seth/cppLib/tmxlite-1.3.0/"
+                "/usr/local/lib"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -11,15 +11,16 @@
 
 int main()
 {
+
+    // Create window that fits the user's screen size, then make it fullscreen.
+    sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
+    sf::RenderWindow window (sf::VideoMode(desktopMode.width, desktopMode.height, desktopMode.bitsPerPixel), "Sprite movement prototype", sf::Style::Fullscreen);
+
     //Load the map in
       tmx::Map map;
       map.load("testmap.tmx");
 
       MapLayer layerZero(map, 0);
-
-    // Create window that fits the user's screen size, then make it fullscreen.
-    sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
-    sf::RenderWindow window (sf::VideoMode(desktopMode.width, desktopMode.height, desktopMode.bitsPerPixel), "Sprite movement prototype", sf::Style::Fullscreen);
 
     //Only handle key presses once per loop
     window.setKeyRepeatEnabled(false);

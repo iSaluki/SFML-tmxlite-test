@@ -13,7 +13,6 @@
 int main()
 {
 
-
     // Create window that fits the user's screen size, then make it fullscreen.
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
     sf::RenderWindow window (sf::VideoMode(desktopMode.width, desktopMode.height, desktopMode.bitsPerPixel), "Sprite movement prototype", sf::Style::Fullscreen);
@@ -166,7 +165,7 @@ int main()
         }
 
         //Prevent sprite from leaving screen bounds
-        if(x<0)
+/*        if(x<0)
         {
             x=0;
         }
@@ -182,17 +181,32 @@ int main()
         {
             y=window.getSize().y;
         }
+ */ 
         //Prevent camera from leaving tilemap
       sf::FloatRect mapSize = layerZero.getGlobalBounds();
       float mapHeight = mapSize.height;
       float mapWidth = mapSize.width;
 
 
-    //Incomplete logic to stop the camera leaving tilemap bounds
-      if(mapHeight < view.getSize().y)
+
+    //Move camera view back into bounds if it exits tilemap
+/*      if(view.getSize().x > mapHeight - view.getSize().x)
       {
-          view.setSize(view.getSize().x, mapHeight);
+          view.setSize(mapHeight - view.getSize().x, mapWidth);
       }
+      if (view.getSize().y > mapWidth - view.getSize().y)
+      {
+          view.setSize(mapWidth - view.getSize().y, mapHeight);
+      }
+      if (view.getSize().x > 0)
+      {
+          view.setSize(0, view.getSize().y);
+      }
+      if (view.getSize().y > 0)
+      {
+          view.setSize(view.getSize().x, 0);
+      }
+      */
 
         //Clear previous frame, set background colour to Azure
         window.clear(sf::Color(0,128,255));

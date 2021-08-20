@@ -165,6 +165,7 @@ int main()
         }
 
         //Prevent sprite from leaving screen bounds
+        //x,y vars are window bounds
 /*        if(x<0)
         {
             x=0;
@@ -181,7 +182,7 @@ int main()
         {
             y=window.getSize().y;
         }
- */ 
+*/
         //Prevent camera from leaving tilemap
       sf::FloatRect mapSize = layerZero.getGlobalBounds();
       float mapHeight = mapSize.height;
@@ -190,23 +191,23 @@ int main()
 
 
     //Move camera view back into bounds if it exits tilemap
-/*      if(view.getSize().x > mapHeight - view.getSize().x)
+/*      if(view.getCenter().x > mapHeight - view.getSize().x)
       {
-          view.setSize(mapHeight - view.getSize().x, mapWidth);
+          view.setCenter(mapHeight - view.getSize().x, mapWidth);
       }
-      if (view.getSize().y > mapWidth - view.getSize().y)
+      if (view.getCenter().y > mapWidth - view.getSize().y)
       {
-          view.setSize(mapWidth - view.getSize().y, mapHeight);
+          view.setCenter(mapWidth - view.getSize().y, mapHeight);
       }
-      if (view.getSize().x > 0)
+      if (view.getCenter().x > 0)
       {
-          view.setSize(0, view.getSize().y);
+          view.setCenter(0, view.getSize().y);
       }
-      if (view.getSize().y > 0)
+      if (view.getCenter().y > 0)
       {
           view.setSize(view.getSize().x, 0);
       }
-      */
+*/
 
         //Clear previous frame, set background colour to Azure
         window.clear(sf::Color(0,128,255));
@@ -224,6 +225,14 @@ int main()
         sprite.setPosition(x,y);
         //Draw character sprite
         window.draw(sprite);
+
+
+        //Debug
+/*        std::string debugText;
+        debugText = std::to_string(view.getCenter().x) + std::to_string(view.getCenter().y);
+        std::cout << debugText;
+*/
+
         //Update frame
         window.display();
     }

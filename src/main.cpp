@@ -3,7 +3,8 @@
 #include <iostream>
 //For tile loading
 #include <tmxlite/Map.hpp>
-#include "SFMLOrthogonalLayer.hpp"
+#include "MapLoader.hpp"
+
 
 //Set constant for sprite speed
 #define SPEED 5;
@@ -11,7 +12,6 @@
 
 int main()
 {
-
 
     // Create window that fits the user's screen size, then make it fullscreen.
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
@@ -165,7 +165,8 @@ int main()
         }
 
         //Prevent sprite from leaving screen bounds
-        if(x<0)
+        //x,y vars are window bounds
+/*        if(x<0)
         {
             x=0;
         }
@@ -181,6 +182,33 @@ int main()
         {
             y=window.getSize().y;
         }
+*/
+        //Prevent camera from leaving tilemap
+      sf::FloatRect mapSize = layerZero.getGlobalBounds();
+      float mapHeight = mapSize.height;
+      float mapWidth = mapSize.width;
+
+
+
+    //Move camera view back into bounds if it exits tilemap
+/*      if(view.getCenter().x > mapWidth - view.getSize().x)
+      {
+          view.setCenter(mapWidth - view.getSize().x, mapWidth);
+      }
+      if (view.getCenter().y > mapWidth - view.getSize().y)
+      {
+          view.setCenter(mapWidth - view.getSize().y, mapHeight);
+      }
+      if (view.getCenter().x > 0)
+      {
+          view.setCenter(0, view.getSize().y);
+      }
+      if (view.getCenter().y > 0)
+      {
+          view.setSize(view.getSize().x, 0);
+      }
+*/
+
         //Clear previous frame, set background colour to Azure
         window.clear(sf::Color(0,128,255));
 
@@ -197,6 +225,14 @@ int main()
         sprite.setPosition(x,y);
         //Draw character sprite
         window.draw(sprite);
+
+
+        //Debug
+/*        std::string debugText;
+        debugText = std::to_string(view.getCenter().x) + std::to_string(view.getCenter().y);
+        std::cout << debugText;
+*/
+
         //Update frame
         window.display();
     }

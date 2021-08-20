@@ -3,7 +3,7 @@
 #include <iostream>
 //For tile loading
 #include <tmxlite/Map.hpp>
-#include "SFMLOrthogonalLayer.hpp"
+#include "MapLoader.hpp"
 
 
 //Set constant for sprite speed
@@ -191,9 +191,9 @@ int main()
 
 
     //Move camera view back into bounds if it exits tilemap
-/*      if(view.getCenter().x > mapHeight - view.getSize().x)
+/*      if(view.getCenter().x > mapWidth - view.getSize().x)
       {
-          view.setCenter(mapHeight - view.getSize().x, mapWidth);
+          view.setCenter(mapWidth - view.getSize().x, mapWidth);
       }
       if (view.getCenter().y > mapWidth - view.getSize().y)
       {

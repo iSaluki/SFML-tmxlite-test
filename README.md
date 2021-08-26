@@ -1,4 +1,4 @@
-# A very basic SFML test
+# A very basic SFML/tmxlite test
 
 This repository contains a super basic test project. It uses SFML to handle drawing and user input and tmxlite to load a tilemap from Tiled.
 
